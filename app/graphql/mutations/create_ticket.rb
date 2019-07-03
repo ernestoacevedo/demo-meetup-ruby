@@ -1,14 +1,16 @@
 module Mutations
-  class CreateTicket < GraphQL::Schema::RelayClassicMutation
+  class CreateTicket < Mutations::BaseMutation
     argument :description, String, required: true
-    argument :url, String, required: true
+    argument :title, String, required: true
+    argument :level, Integer, required: true
 
     type Types::TicketType
 
-    def resolve(description: nil, url: nil)
+    def resolve(description: nil, title: nil, level: nil)
       Ticket.create!(
         description: description,
-        url: url,
+        title: title,
+        level: level,
         user: context[:current_user]
       )
     end
