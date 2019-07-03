@@ -1,12 +1,12 @@
 module Mutations
-  class CreateLink < Mutations::BaseMutation
+  class CreateTicket < GraphQL::Schema::RelayClassicMutation
     argument :description, String, required: true
     argument :url, String, required: true
 
-    type Types::LinkType
+    type Types::TicketType
 
     def resolve(description: nil, url: nil)
-      Link.create!(
+      Ticket.create!(
         description: description,
         url: url,
         user: context[:current_user]

@@ -1,8 +1,8 @@
 module Types
-  class LinkType < GraphQL::Schema::Object
+  class TicketType < Types::BaseObject
     field :id, ID, null: false
     field :url, String, null: false
     field :description, String, null: false
-    field :posted_by, UserType, null: true, method: :user
+    field :created_by, UserType, null: true, method: :user
   end
 end
