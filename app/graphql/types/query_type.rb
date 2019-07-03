@@ -10,7 +10,7 @@ module Types
     end
 
     def ticket(id: nil)
-      Ticket.where(id)
+      [Ticket.find(id)]
     end
   end
 end
