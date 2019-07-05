@@ -5,6 +5,7 @@ module Types
       description "Find a ticket by id"
       argument :id, String, required: true
     end
+    field :all_bus_operators, [BusOperatorType], null: false
 
     def all_tickets
       Ticket.all
@@ -12,6 +13,10 @@ module Types
 
     def ticket(id:)
       Ticket.find(id)
+    end
+
+    def all_bus_operators
+      BusOperator.all
     end
   end
 end
